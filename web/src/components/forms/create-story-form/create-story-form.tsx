@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -7,7 +8,10 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
+  CardAction,
 } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import { CreateStoryFormInput } from "./create-story-form-input";
 import { CreateStoryFormFooter } from "./create-story-form-footer";
 
@@ -34,6 +38,7 @@ export function CreateStoryForm({
       storyName: "",
     },
   });
+  const [keepOpen, setKeepOpen] = useState(false);
 
   return (
     <FormProvider {...form}>
@@ -44,6 +49,18 @@ export function CreateStoryForm({
         >
           <CardHeader>
             <CardTitle className="text-2xl">Create New Story</CardTitle>
+            <CardAction className="self-center">
+              <div className="flex items-center gap-2">
+                <Checkbox
+                  id="keep-open"
+                  checked={keepOpen}
+                  onCheckedChange={(checked) => setKeepOpen(checked === true)}
+                />
+                <Label htmlFor="keep-open" className="cursor-pointer">
+                  Keep Open
+                </Label>
+              </div>
+            </CardAction>
           </CardHeader>
           <CardContent>
             <CreateStoryFormInput />
@@ -52,6 +69,7 @@ export function CreateStoryForm({
             <CreateStoryFormFooter
               onSubmit={onSubmit}
               onCancel={onCancel}
+              keepOpen={keepOpen}
             />
           </CardFooter>
         </form>

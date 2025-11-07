@@ -23,6 +23,7 @@ const meta = {
     onCancel: () => {
       console.log('onCancel called')
     },
+    keepOpen: false,
   },
   decorators: [
     (Story) => {
