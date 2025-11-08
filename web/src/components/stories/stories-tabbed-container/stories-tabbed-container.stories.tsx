@@ -4,7 +4,9 @@ import { StoriesTabbedContainerList } from './stories-tabbed-container-list'
 import { StoriesTabbedContainerHeader } from './stories-tabbed-container-header'
 import { StoriesTabbedContainerTrigger } from './stories-tabbed-container-trigger'
 import { StoriesTabbedContainerContent } from './stories-tabbed-container-content'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { StoriesTabbedContainerCard } from './stories-tabbed-container-card'
+import { StoriesTabbedContainerItem } from './stories-tabbed-container-item'
+import { Separator } from '@/components/ui/separator'
 
 const meta = {
   title: 'Components/Stories/StoriesTabbedContainer',
@@ -34,42 +36,55 @@ export const Default = {
       </StoriesTabbedContainerList>
 
       <StoriesTabbedContainerContent value="active">
-        <Card>
-          <CardHeader>
-            <CardTitle>Active Stories</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              This is where your active stories table or list would go.
-            </p>
-          </CardContent>
-        </Card>
+        <StoriesTabbedContainerCard>
+          <div className="flex flex-col">
+            <StoriesTabbedContainerItem
+              name="User Authentication Story"
+              onClick={() => console.log('Item 1 clicked')}
+              onDelete={() => console.log('Item 1 deleted')}
+            />
+            <Separator />
+            <StoriesTabbedContainerItem
+              name="Payment Integration Story"
+              onClick={() => console.log('Item 2 clicked')}
+              onDelete={() => console.log('Item 2 deleted')}
+            />
+            <Separator />
+            <StoriesTabbedContainerItem
+              name="Dashboard Analytics Story"
+              onClick={() => console.log('Item 3 clicked')}
+              onDelete={() => console.log('Item 3 deleted')}
+            />
+            <Separator />
+            <StoriesTabbedContainerItem
+              name="Email Notification System"
+              onClick={() => console.log('Item 4 clicked')}
+              onDelete={() => console.log('Item 4 deleted')}
+            />
+            <Separator />
+            <StoriesTabbedContainerItem
+              name="User Profile Management"
+              onClick={() => console.log('Item 5 clicked')}
+              onDelete={() => console.log('Item 5 deleted')}
+            />
+          </div>
+        </StoriesTabbedContainerCard>
       </StoriesTabbedContainerContent>
 
       <StoriesTabbedContainerContent value="completed">
-        <Card>
-          <CardHeader>
-            <CardTitle>Completed Stories</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              This is where your completed stories table or list would go.
-            </p>
-          </CardContent>
-        </Card>
+        <StoriesTabbedContainerCard>
+          <p className="text-muted-foreground">
+            This is where your completed stories table or list would go.
+          </p>
+        </StoriesTabbedContainerCard>
       </StoriesTabbedContainerContent>
 
       <StoriesTabbedContainerContent value="all">
-        <Card>
-          <CardHeader>
-            <CardTitle>All Stories</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              This is where all your stories table or list would go.
-            </p>
-          </CardContent>
-        </Card>
+        <StoriesTabbedContainerCard>
+          <p className="text-muted-foreground">
+            This is where all your stories table or list would go.
+          </p>
+        </StoriesTabbedContainerCard>
       </StoriesTabbedContainerContent>
     </StoriesTabbedContainer>
   ),
@@ -91,36 +106,21 @@ export const WithoutBadges = {
       </StoriesTabbedContainerList>
 
       <StoriesTabbedContainerContent value="active">
-        <Card>
-          <CardHeader>
-            <CardTitle>Active Stories</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">Content for active stories.</p>
-          </CardContent>
-        </Card>
+        <StoriesTabbedContainerCard>
+          <p className="text-muted-foreground">Content for active stories.</p>
+        </StoriesTabbedContainerCard>
       </StoriesTabbedContainerContent>
 
       <StoriesTabbedContainerContent value="completed">
-        <Card>
-          <CardHeader>
-            <CardTitle>Completed Stories</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">Content for completed stories.</p>
-          </CardContent>
-        </Card>
+        <StoriesTabbedContainerCard>
+          <p className="text-muted-foreground">Content for completed stories.</p>
+        </StoriesTabbedContainerCard>
       </StoriesTabbedContainerContent>
 
       <StoriesTabbedContainerContent value="all">
-        <Card>
-          <CardHeader>
-            <CardTitle>All Stories</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">Content for all stories.</p>
-          </CardContent>
-        </Card>
+        <StoriesTabbedContainerCard>
+          <p className="text-muted-foreground">Content for all stories.</p>
+        </StoriesTabbedContainerCard>
       </StoriesTabbedContainerContent>
     </StoriesTabbedContainer>
   ),
@@ -142,36 +142,21 @@ export const WithZeroCounts = {
       </StoriesTabbedContainerList>
 
       <StoriesTabbedContainerContent value="active">
-        <Card>
-          <CardHeader>
-            <CardTitle>Active Stories</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">No active stories available.</p>
-          </CardContent>
-        </Card>
+        <StoriesTabbedContainerCard>
+          <p className="text-muted-foreground">No active stories available.</p>
+        </StoriesTabbedContainerCard>
       </StoriesTabbedContainerContent>
 
       <StoriesTabbedContainerContent value="completed">
-        <Card>
-          <CardHeader>
-            <CardTitle>Completed Stories</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">No completed stories available.</p>
-          </CardContent>
-        </Card>
+        <StoriesTabbedContainerCard>
+          <p className="text-muted-foreground">No completed stories available.</p>
+        </StoriesTabbedContainerCard>
       </StoriesTabbedContainerContent>
 
       <StoriesTabbedContainerContent value="all">
-        <Card>
-          <CardHeader>
-            <CardTitle>All Stories</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">No stories available.</p>
-          </CardContent>
-        </Card>
+        <StoriesTabbedContainerCard>
+          <p className="text-muted-foreground">No stories available.</p>
+        </StoriesTabbedContainerCard>
       </StoriesTabbedContainerContent>
     </StoriesTabbedContainer>
   ),
@@ -196,36 +181,21 @@ export const WithHeaderButtons = {
       </StoriesTabbedContainerHeader>
 
       <StoriesTabbedContainerContent value="active">
-        <Card>
-          <CardHeader>
-            <CardTitle>Active Stories</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">No active stories available.</p>
-          </CardContent>
-        </Card>
+        <StoriesTabbedContainerCard>
+          <p className="text-muted-foreground">No active stories available.</p>
+        </StoriesTabbedContainerCard>
       </StoriesTabbedContainerContent>
 
       <StoriesTabbedContainerContent value="completed">
-        <Card>
-          <CardHeader>
-            <CardTitle>Completed Stories</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">No completed stories available.</p>
-          </CardContent>
-        </Card>
+        <StoriesTabbedContainerCard>
+          <p className="text-muted-foreground">No completed stories available.</p>
+        </StoriesTabbedContainerCard>
       </StoriesTabbedContainerContent>
 
       <StoriesTabbedContainerContent value="all">
-        <Card>
-          <CardHeader>
-            <CardTitle>All Stories</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">No stories available.</p>
-          </CardContent>
-        </Card>
+        <StoriesTabbedContainerCard>
+          <p className="text-muted-foreground">No stories available.</p>
+        </StoriesTabbedContainerCard>
       </StoriesTabbedContainerContent>
     </StoriesTabbedContainer>
   ),
