@@ -1,3 +1,4 @@
+import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { StoriesTabbedContainerUnified } from './stories-tabbed-container-unified'
 import { StoriesTabbedContainerUnifiedItem } from './stories-tabbed-container-unified-item'

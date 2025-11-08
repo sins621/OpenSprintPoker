@@ -1,3 +1,4 @@
+import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { StoriesTabbedContainerTable } from './stories-tabbed-container-table'
 import { StoriesTabbedContainerTableItem } from './stories-tabbed-container-table-item'

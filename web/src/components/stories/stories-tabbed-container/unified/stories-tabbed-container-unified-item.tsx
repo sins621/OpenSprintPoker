@@ -1,10 +1,11 @@
 "use client"
 
 import * as React from "react"
-import { List, Trash2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { List } from "lucide-react"
 import { TableRow, TableCell } from "@/components/ui/table"
 import { cn } from "@/lib/utils"
+import { ActionsCell } from "../shared/actions-cell"
+import { DeleteButton } from "../shared/delete-button"
 
 type BaseStoriesTabbedContainerUnifiedItemProps = {
   title: string
@@ -30,14 +31,6 @@ export function StoriesTabbedContainerUnifiedItem(
 ) {
   const { title, onDelete, onClick, className, actions, inUnifiedTable } = props
   const [isButtonHovered, setIsButtonHovered] = React.useState(false)
-
-  const handleDelete = React.useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation()
-      onDelete?.()
-    },
-    [onDelete]
-  )
 
   const handleRowClick = React.useCallback(() => {
     if (!isButtonHovered) {
@@ -71,24 +64,15 @@ export function StoriesTabbedContainerUnifiedItem(
         <TableCell>{estimated ?? '-'}</TableCell>
         <TableCell>{time ?? '-'}</TableCell>
         <TableCell>
-          <div className="flex items-center justify-end gap-2">
-            {actions}
-            {onDelete && (
-              <Button
-                variant="ghost"
-                size="icon-sm"
-                onClick={handleDelete}
-                onMouseEnter={() => setIsButtonHovered(true)}
-                onMouseLeave={() => setIsButtonHovered(false)}
-                className={cn(
-                  "shrink-0",
-                  isButtonHovered && "bg-destructive/20 text-destructive dark:bg-destructive/30"
-                )}
-                aria-label={`Delete ${title}`}
-              >
-                <Trash2 className="size-4" />
-              </Button>
-            )}
+          <div
+            onMouseEnter={() => setIsButtonHovered(true)}
+            onMouseLeave={() => setIsButtonHovered(false)}
+          >
+            <ActionsCell
+              actions={actions}
+              onDelete={onDelete}
+              deleteAriaLabel={`Delete ${title}`}
+            />
           </div>
         </TableCell>
       </TableRow>
@@ -111,22 +95,12 @@ export function StoriesTabbedContainerUnifiedItem(
       <List className="size-4 text-muted-foreground shrink-0" />
       <span className="flex-1 text-sm">{title}</span>
       {actions}
-      {onDelete && (
-        <Button
-          variant="ghost"
-          size="icon-sm"
-          onClick={handleDelete}
-          onMouseEnter={() => setIsButtonHovered(true)}
-          onMouseLeave={() => setIsButtonHovered(false)}
-          className={cn(
-            "shrink-0",
-            isButtonHovered && "bg-destructive/20 text-destructive dark:bg-destructive/30"
-          )}
-          aria-label={`Delete ${title}`}
-        >
-          <Trash2 className="size-4" />
-        </Button>
-      )}
+      <div
+        onMouseEnter={() => setIsButtonHovered(true)}
+        onMouseLeave={() => setIsButtonHovered(false)}
+      >
+        <DeleteButton onDelete={onDelete} ariaLabel={`Delete ${title}`} />
+      </div>
     </div>
   )
 }

@@ -1,10 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { Trash2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { TableRow, TableCell } from "@/components/ui/table"
 import { cn } from "@/lib/utils"
+import { ActionsCell } from "../shared/actions-cell"
 
 export type StoriesTabbedContainerTableItemProps = {
   title: string
@@ -27,14 +26,6 @@ export function StoriesTabbedContainerTableItem({
 }: StoriesTabbedContainerTableItemProps) {
   const [isButtonHovered, setIsButtonHovered] = React.useState(false)
 
-  const handleDelete = React.useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation()
-      onDelete?.()
-    },
-    [onDelete]
-  )
-
   const handleRowClick = React.useCallback(() => {
     if (!isButtonHovered) {
       onClick?.()
@@ -53,24 +44,15 @@ export function StoriesTabbedContainerTableItem({
       <TableCell>{estimated ?? '-'}</TableCell>
       <TableCell>{time ?? '-'}</TableCell>
       <TableCell>
-        <div className="flex items-center justify-end gap-2">
-          {actions}
-          {onDelete && (
-            <Button
-              variant="ghost"
-              size="icon-sm"
-              onClick={handleDelete}
-              onMouseEnter={() => setIsButtonHovered(true)}
-              onMouseLeave={() => setIsButtonHovered(false)}
-              className={cn(
-                "shrink-0",
-                isButtonHovered && "bg-destructive/20 text-destructive dark:bg-destructive/30"
-              )}
-              aria-label={`Delete ${title}`}
-            >
-              <Trash2 className="size-4" />
-            </Button>
-          )}
+        <div
+          onMouseEnter={() => setIsButtonHovered(true)}
+          onMouseLeave={() => setIsButtonHovered(false)}
+        >
+          <ActionsCell
+            actions={actions}
+            onDelete={onDelete}
+            deleteAriaLabel={`Delete ${title}`}
+          />
         </div>
       </TableCell>
     </TableRow>

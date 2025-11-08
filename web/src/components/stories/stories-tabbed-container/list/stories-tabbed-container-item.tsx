@@ -1,9 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { List, Trash2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { List } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { DeleteButton } from "../shared/delete-button"
 
 export type StoriesTabbedContainerItemProps = {
   name: string
@@ -18,17 +18,8 @@ export function StoriesTabbedContainerItem({
   onClick,
   className,
 }: StoriesTabbedContainerItemProps) {
-  const [isButtonHovered, setIsButtonHovered] = React.useState(false)
-
-  const handleDelete = React.useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation()
-      onDelete?.()
-    },
-    [onDelete]
-  )
-
   const [isItemHovered, setIsItemHovered] = React.useState(false)
+  const [isButtonHovered, setIsButtonHovered] = React.useState(false)
 
   return (
     <div
@@ -43,20 +34,12 @@ export function StoriesTabbedContainerItem({
     >
       <List className="size-4 text-muted-foreground shrink-0" />
       <span className="flex-1 text-sm">{name}</span>
-      <Button
-        variant="ghost"
-        size="icon-sm"
-        onClick={handleDelete}
+      <div
         onMouseEnter={() => setIsButtonHovered(true)}
         onMouseLeave={() => setIsButtonHovered(false)}
-        className={cn(
-          "shrink-0",
-          isButtonHovered && "bg-destructive/20 text-destructive dark:bg-destructive/30"
-        )}
-        aria-label={`Delete ${name}`}
       >
-        <Trash2 className="size-4" />
-      </Button>
+        <DeleteButton onDelete={onDelete} ariaLabel={`Delete ${name}`} />
+      </div>
     </div>
   )
 }
