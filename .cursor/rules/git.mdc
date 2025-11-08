@@ -1,0 +1,5 @@
+---
+description: Git based tasks
+alwaysApply: false
+---
+When asked to commit work always commit them in logical chunks with single line commit messages following the "feat: " / "fix: " / "chore: " convention

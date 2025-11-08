@@ -1,0 +1,16 @@
+---
+globs: *.tsx
+alwaysApply: false
+---
+Component Convention:
+
+```tsx
+export type FooProps = {
+  bar: type;
+  baz: type;
+}
+
+export default function Foo({bar, baz}: FooProps) {
+  
+}
+```
