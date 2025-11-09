@@ -25,7 +25,7 @@ export default function VotingSummaryContainer({
       <CardHeader className="text-center">
         <CardTitle>{storyTitle}</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="overflow-hidden">
         {children}
       </CardContent>
       <CardFooter className="flex items-center justify-between">
