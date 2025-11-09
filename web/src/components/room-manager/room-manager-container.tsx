@@ -59,10 +59,12 @@ export function RoomManagerContainer({
     }
   }, [url]);
 
-  const isColoredVariant = headerVariant !== "default";
-  const textColorClass = isColoredVariant
-    ? "text-white"
-    : "text-foreground";
+  const textColorClass =
+    headerVariant === "default"
+      ? "text-foreground"
+      : headerVariant === "yellow"
+        ? "text-black"
+        : "text-white";
 
   return (
     <Card className={cn("w-full pt-0", className)}>
