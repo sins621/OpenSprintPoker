@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { GameManager } from "./game-manager";
-import { RoomManagerContainer } from "./room-manager-container";
+import { RoomManagerContainer } from "../container/room-manager-container";
 
 const meta = {
   title: "Components/RoomManager/GameManager",
