@@ -1,19 +1,5 @@
 import { cn } from "@/lib/utils";
-
-export type PokerCardValue =
-  | "0"
-  | "1"
-  | "2"
-  | "3"
-  | "5"
-  | "8"
-  | "13"
-  | "21"
-  | "34"
-  | "55"
-  | "89"
-  | "?"
-  | "∞";
+import type { PokerCardValue } from "@/lib/types";
 
 export type PokerCardProps = {
   value: PokerCardValue;
