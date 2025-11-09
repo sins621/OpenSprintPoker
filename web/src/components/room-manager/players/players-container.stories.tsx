@@ -5,7 +5,7 @@ import { RoomManagerContainer } from "../container/room-manager-container";
 import { Separator } from "@/components/ui/separator";
 
 const meta = {
-  title: "Components/RoomManager/PlayersContainer",
+  title: "Components/RoomManager/Players/PlayersContainer",
   component: PlayersContainer,
   parameters: {
     layout: "centered",
