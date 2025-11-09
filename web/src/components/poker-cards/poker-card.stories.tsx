@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
+import type { PokerCardValue } from "@/lib/types";
 
-import { PokerCard, type PokerCardValue } from "./poker-card";
+import { PokerCard } from "./poker-card";
 
 const meta = {
   title: "Components/Poker/Card",
@@ -152,7 +153,11 @@ export const AllCards: Story = {
     return (
       <div className="flex flex-wrap gap-4 justify-center p-8">
         {values.map((value) => (
-          <PokerCard key={value} value={value} onClick={fn()} />
+          <PokerCard
+            key={value}
+            value={value}
+            onClick={() => console.log({ value })}
+          />
         ))}
       </div>
     );

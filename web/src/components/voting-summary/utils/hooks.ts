@@ -37,3 +37,17 @@ export function usePieData(chartData: Array<{ storyPoint: PokerCardValue; count:
   }, [chartData]);
 }
 
+export function useBarData(chartData: Array<{ storyPoint: PokerCardValue; count: number }>) {
+  return React.useMemo(() => {
+    return chartData.map((item, index) => {
+      const color = COLORS[index % COLORS.length];
+      return {
+        storyPoint: item.storyPoint,
+        votes: item.count,
+        fill: color,
+        colorIndex: index,
+      };
+    });
+  }, [chartData]);
+}
+

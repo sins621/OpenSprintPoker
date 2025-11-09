@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { VotingSummaryPieChart } from './voting-summary-pie-chart'
-import { PieChartValues } from './pie-chart-values'
-import { sampleVotes, fewVotes, manyVotes } from './mock'
-import { calculateAverage, getTotalVotes } from './utils'
+import { ChartValues } from './chart-values'
+import { sampleVotes, fewVotes, manyVotes } from '../../utils/mock'
+import { calculateAverage, getTotalVotes } from '../../utils/utils'
 
 const meta = {
   title: 'Components/VotingSummary/VotingSummaryPieChart',
@@ -29,7 +29,7 @@ export const Default = {
     return (
       <div style={{ width: '800px', height: '400px' }}>
         <VotingSummaryPieChart votes={votes}>
-          <PieChartValues
+          <ChartValues
             votedCount={totalVotes}
             averageStoryPoint={average}
           />
@@ -51,7 +51,7 @@ export const SmallWidth = {
     return (
       <div style={{ width: '600px', height: '300px' }}>
         <VotingSummaryPieChart votes={votes}>
-          <PieChartValues
+          <ChartValues
             votedCount={totalVotes}
             averageStoryPoint={average}
           />
@@ -73,7 +73,7 @@ export const LargeWidth = {
     return (
       <div style={{ width: '1200px', height: '500px' }}>
         <VotingSummaryPieChart votes={votes}>
-          <PieChartValues
+          <ChartValues
             votedCount={totalVotes}
             averageStoryPoint={average}
           />
@@ -95,7 +95,7 @@ export const FewVotes = {
     return (
       <div style={{ width: '800px', height: '400px' }}>
         <VotingSummaryPieChart votes={votes}>
-          <PieChartValues
+          <ChartValues
             votedCount={totalVotes}
             averageStoryPoint={average}
           />
@@ -117,7 +117,7 @@ export const ManyVotes = {
     return (
       <div style={{ width: '800px', height: '400px' }}>
         <VotingSummaryPieChart votes={votes}>
-          <PieChartValues
+          <ChartValues
             votedCount={totalVotes}
             averageStoryPoint={average}
           />

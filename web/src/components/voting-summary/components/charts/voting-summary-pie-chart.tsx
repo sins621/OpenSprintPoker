@@ -5,7 +5,8 @@ import * as RechartsPrimitive from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
 import type { PokerCardValue } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { useChartData, useChartConfig, usePieData } from "./hooks";
+import { useChartData, useChartConfig, usePieData } from "../../utils/hooks";
+import { ChartValues } from "./chart-values";
 
 export type VotingSummaryPieChartProps = {
   votes: Record<PokerCardValue, number>;
