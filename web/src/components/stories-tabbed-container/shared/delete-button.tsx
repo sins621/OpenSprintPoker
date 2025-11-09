@@ -1,7 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { Trash2 } from "lucide-react"
+import { Trash2 } from "@/components/animate-ui/icons/trash-2"
+import { AnimateIcon } from "@/components/animate-ui/icons/icon"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -38,7 +39,9 @@ export function DeleteButton({ onDelete, ariaLabel }: DeleteButtonProps) {
       )}
       aria-label={ariaLabel}
     >
-      <Trash2 className="size-4" />
+      <AnimateIcon animateOnHover>
+        <Trash2 className="size-4" />
+      </AnimateIcon>
     </Button>
   )
 }
