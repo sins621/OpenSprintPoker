@@ -25,6 +25,9 @@ const meta = {
     onNextStory: () => {
       console.log("onNextStory called");
     },
+    onFinishVoting: (value: string) => {
+      console.log("onFinishVoting called with value:", value);
+    },
   },
 } satisfies Meta<typeof GameManager>;
 
@@ -40,6 +43,12 @@ export const Playing: Story = {
 export const Idle: Story = {
   args: {
     state: "idle",
+  },
+};
+
+export const Moderator: Story = {
+  args: {
+    state: "moderator",
   },
 };
 
@@ -79,6 +88,32 @@ export const InRoomManagerIdle: Story = {
         url="https://example.com/room/abc123"
         headerText="Voting Completed"
         headerVariant="yellow"
+      >
+        <GameManager {...args} />
+      </RoomManagerContainer>
+    );
+  },
+  decorators: [
+    (Story) => {
+      return (
+        <div style={{ width: "500px", margin: "0 auto" }}>
+          <Story />
+        </div>
+      );
+    },
+  ],
+};
+
+export const InRoomManagerModerator: Story = {
+  args: {
+    state: "moderator",
+  },
+  render: (args) => {
+    return (
+      <RoomManagerContainer
+        url="https://example.com/room/abc123"
+        headerText="Moderator Controls"
+        headerVariant="default"
       >
         <GameManager {...args} />
       </RoomManagerContainer>

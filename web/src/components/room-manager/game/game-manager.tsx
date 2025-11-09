@@ -1,7 +1,9 @@
 import { Activity } from "react";
-import { Button } from "@/components/ui/button";
+import { PlayingState } from "./playing-state";
+import { IdleState } from "./idle-state";
+import { ModeratorState } from "./moderator-state";
 
-export type GameManagerState = "playing" | "idle";
+export type GameManagerState = "playing" | "idle" | "moderator";
 
 export type GameManagerProps = {
   state: GameManagerState;
@@ -10,6 +12,7 @@ export type GameManagerProps = {
   onClearVotes?: () => void;
   onSkipStory?: () => void;
   onNextStory?: () => void;
+  onFinishVoting?: (value: string) => void;
   className?: string;
 };
 
@@ -20,65 +23,29 @@ export function GameManager({
   onClearVotes,
   onSkipStory,
   onNextStory,
+  onFinishVoting,
   className,
 }: GameManagerProps) {
   return (
     <div className={className}>
       <Activity mode={state === "playing" ? "visible" : "hidden"}>
-        <div className="grid grid-cols-2 gap-2">
-          <Button
-            type="button"
-            variant="outline"
-            onClick={onResetTimer}
-            className="w-full"
-          >
-            Reset Timer
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            onClick={onFlipCards}
-            className="w-full"
-          >
-            Flip Cards
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            onClick={onClearVotes}
-            className="w-full"
-          >
-            Clear Votes
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            onClick={onSkipStory}
-            className="w-full"
-          >
-            Skip Story
-          </Button>
-        </div>
+        <PlayingState
+          onResetTimer={onResetTimer}
+          onFlipCards={onFlipCards}
+          onClearVotes={onClearVotes}
+          onSkipStory={onSkipStory}
+        />
       </Activity>
       <Activity mode={state === "idle" ? "visible" : "hidden"}>
-        <div className="flex flex-col gap-2">
-          <Button
-            type="button"
-            variant="outline"
-            onClick={onClearVotes}
-            className="w-full"
-          >
-            Clear Votes
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            onClick={onNextStory}
-            className="w-full"
-          >
-            Next Story
-          </Button>
-        </div>
+        <IdleState onClearVotes={onClearVotes} onNextStory={onNextStory} />
+      </Activity>
+      <Activity mode={state === "moderator" ? "visible" : "hidden"}>
+        <ModeratorState
+          onFinishVoting={onFinishVoting}
+          onResetTimer={onResetTimer}
+          onClearVotes={onClearVotes}
+          onSkipStory={onSkipStory}
+        />
       </Activity>
     </div>
   );
