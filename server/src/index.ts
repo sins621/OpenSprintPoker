@@ -1,19 +1,32 @@
-import { serve } from "@hono/node-server";
+import { createNodeWebSocket } from "@hono/node-ws";
 import { Hono } from "hono";
+import { serve } from "@hono/node-server";
 import "dotenv/config";
 
 const app = new Hono();
 
-app.get("/", (c) => {
-  return c.text("Hello Hono!");
-});
+const { injectWebSocket, upgradeWebSocket } = createNodeWebSocket({ app });
+const port = Number(process.env.PORT);
 
-serve(
-  {
-    fetch: app.fetch,
-    port: Number(process.env.PORT) ?? 8000,
-  },
-  (info) => {
-    console.log(`Server is running on http://localhost:${info.port}`);
-  }
+app.get(
+  "/ws",
+  upgradeWebSocket((c) => {
+    let intervalId: NodeJS.Timeout;
+    return {
+      onOpen(_event, ws) {
+        intervalId = setInterval(() => {
+          ws.send(new Date().toString());
+        }, 200);
+      },
+      onClose() {
+        clearInterval(intervalId);
+      },
+    };
+  }),
 );
+
+const server = serve({
+  fetch: app.fetch,
+  port: port || 8000,
+});
+injectWebSocket(server);
