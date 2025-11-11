@@ -1,13 +1,12 @@
 'use client';
 
-import * as React from 'react';
 import { motion, type Variants } from 'motion/react';
 
 import {
-  getVariants,
-  useAnimateIconContext,
-  IconWrapper,
-  type IconProps,
+    getVariants,
+    IconWrapper,
+    useAnimateIconContext,
+    type IconProps,
 } from '@/components/animate-ui/icons/icon';
 
 type LightbulbProps = IconProps<keyof typeof animations>;
@@ -103,9 +102,7 @@ function Lightbulb(props: LightbulbProps) {
 }
 
 export {
-  animations,
-  Lightbulb,
-  Lightbulb as LightbulbIcon,
-  type LightbulbProps,
-  type LightbulbProps as LightbulbIconProps,
+    animations,
+    Lightbulb,
+    Lightbulb as LightbulbIcon, type LightbulbProps as LightbulbIconProps, type LightbulbProps
 };

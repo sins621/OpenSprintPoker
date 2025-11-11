@@ -1,12 +1,11 @@
 "use client";
 
-import * as React from "react";
-import * as RechartsPrimitive from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
 import type { PokerCardValue } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { useChartData, useChartConfig, usePieData } from "../../utils/hooks";
-import { ChartValues } from "./chart-values";
+import * as React from "react";
+import * as RechartsPrimitive from "recharts";
+import { useChartConfig, useChartData, usePieData } from "../../utils/hooks";
 
 export type VotingSummaryPieChartProps = {
   votes: Record<PokerCardValue, number>;

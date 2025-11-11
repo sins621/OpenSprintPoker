@@ -1,13 +1,12 @@
 'use client';
 
-import * as React from 'react';
 import { motion, type Variants } from 'motion/react';
 
 import {
-  getVariants,
-  useAnimateIconContext,
-  IconWrapper,
-  type IconProps,
+    getVariants,
+    IconWrapper,
+    useAnimateIconContext,
+    type IconProps,
 } from '@/components/animate-ui/icons/icon';
 
 type Trash2Props = IconProps<keyof typeof animations>;
@@ -133,9 +132,7 @@ function Trash2(props: Trash2Props) {
 }
 
 export {
-  animations,
-  Trash2,
-  Trash2 as Trash2Icon,
-  type Trash2Props,
-  type Trash2Props as Trash2IconProps,
+    animations,
+    Trash2,
+    Trash2 as Trash2Icon, type Trash2Props as Trash2IconProps, type Trash2Props
 };

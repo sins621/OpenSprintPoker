@@ -1,16 +1,16 @@
+import { Separator } from '@/components/ui/separator'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { StoriesTabbedContainer } from './core/stories-tabbed-container'
-import { StoriesTabbedContainerList } from './core/stories-tabbed-container-list'
-import { StoriesTabbedContainerHeader } from './core/stories-tabbed-container-header'
-import { StoriesTabbedContainerTrigger } from './core/stories-tabbed-container-trigger'
-import { StoriesTabbedContainerContent } from './core/stories-tabbed-container-content'
 import { StoriesTabbedContainerCard } from './core/stories-tabbed-container-card'
+import { StoriesTabbedContainerContent } from './core/stories-tabbed-container-content'
+import { StoriesTabbedContainerHeader } from './core/stories-tabbed-container-header'
+import { StoriesTabbedContainerList } from './core/stories-tabbed-container-list'
+import { StoriesTabbedContainerTrigger } from './core/stories-tabbed-container-trigger'
 import { StoriesTabbedContainerItem } from './list/stories-tabbed-container-item'
 import { StoriesTabbedContainerTable } from './table/stories-tabbed-container-table'
 import { StoriesTabbedContainerTableItem } from './table/stories-tabbed-container-table-item'
 import { StoriesTabbedContainerUnified } from './unified/stories-tabbed-container-unified'
 import { StoriesTabbedContainerUnifiedItem } from './unified/stories-tabbed-container-unified-item'
-import { Separator } from '@/components/ui/separator'
 
 const meta = {
   title: 'Components/Stories/StoriesTabbedContainer',
@@ -459,4 +459,3 @@ export const Complete = {
     </StoriesTabbedContainer>
   ),
 } satisfies Story
-

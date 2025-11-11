@@ -1,19 +1,17 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { StoriesTabbedContainerTableItem } from './stories-tabbed-container-table-item'
-import { StoriesTabbedContainerTable } from './stories-tabbed-container-table'
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { StoriesTabbedContainerTable } from "./stories-tabbed-container-table";
+import { StoriesTabbedContainerTableItem } from "./stories-tabbed-container-table-item";
 
 const meta = {
-  title: 'Components/Stories/StoriesTabbedContainerTableItem',
-  component: StoriesTabbedContainerTableItem,
+  title: "Components/Stories/StoriesTabbedContainerTableItem",
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
-  tags: ['autodocs'],
-} satisfies Meta<typeof StoriesTabbedContainerTableItem>
+  tags: ["autodocs"],
+} satisfies Meta;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default = {
   render: () => (
@@ -22,12 +20,12 @@ export const Default = {
         title="User Authentication Story"
         estimated={5}
         time="2h 30m"
-        onClick={() => console.log('Item clicked')}
-        onDelete={() => console.log('Item deleted')}
+        onClick={() => console.log("Item clicked")}
+        onDelete={() => console.log("Item deleted")}
       />
     </StoriesTabbedContainerTable>
   ),
-} satisfies Story
+} satisfies Story;
 
 export const LongTitle = {
   render: () => (
@@ -36,12 +34,12 @@ export const LongTitle = {
         title="This is a very long story title that might wrap to multiple lines and should be handled gracefully"
         estimated={13}
         time="6h 45m"
-        onClick={() => console.log('Item clicked')}
-        onDelete={() => console.log('Item deleted')}
+        onClick={() => console.log("Item clicked")}
+        onDelete={() => console.log("Item deleted")}
       />
     </StoriesTabbedContainerTable>
   ),
-} satisfies Story
+} satisfies Story;
 
 export const WithoutTime = {
   render: () => (
@@ -49,12 +47,12 @@ export const WithoutTime = {
       <StoriesTabbedContainerTableItem
         title="User Authentication Story"
         estimated={5}
-        onClick={() => console.log('Item clicked')}
-        onDelete={() => console.log('Item deleted')}
+        onClick={() => console.log("Item clicked")}
+        onDelete={() => console.log("Item deleted")}
       />
     </StoriesTabbedContainerTable>
   ),
-} satisfies Story
+} satisfies Story;
 
 export const WithoutEstimated = {
   render: () => (
@@ -62,12 +60,12 @@ export const WithoutEstimated = {
       <StoriesTabbedContainerTableItem
         title="User Authentication Story"
         time="2h 30m"
-        onClick={() => console.log('Item clicked')}
-        onDelete={() => console.log('Item deleted')}
+        onClick={() => console.log("Item clicked")}
+        onDelete={() => console.log("Item deleted")}
       />
     </StoriesTabbedContainerTable>
   ),
-} satisfies Story
+} satisfies Story;
 
 export const WithoutDelete = {
   render: () => (
@@ -76,24 +74,25 @@ export const WithoutDelete = {
         title="User Authentication Story"
         estimated={5}
         time="2h 30m"
-        onClick={() => console.log('Item clicked')}
+        onClick={() => console.log("Item clicked")}
       />
     </StoriesTabbedContainerTable>
   ),
-} satisfies Story
+} satisfies Story;
 
 export const WithoutClick = {
+  args: {},
   render: () => (
     <StoriesTabbedContainerTable>
       <StoriesTabbedContainerTableItem
         title="User Authentication Story"
         estimated={5}
         time="2h 30m"
-        onDelete={() => console.log('Item deleted')}
+        onDelete={() => console.log("Item deleted")}
       />
     </StoriesTabbedContainerTable>
   ),
-} satisfies Story
+} satisfies Story;
 
 export const WithCustomActions = {
   render: () => (
@@ -102,13 +101,13 @@ export const WithCustomActions = {
         title="User Authentication Story"
         estimated={5}
         time="2h 30m"
-        onClick={() => console.log('Item clicked')}
+        onClick={() => console.log("Item clicked")}
         actions={
           <>
             <button
               onClick={(e) => {
-                e.stopPropagation()
-                console.log('Custom action clicked')
+                e.stopPropagation();
+                console.log("Custom action clicked");
               }}
               className="text-sm text-primary hover:underline"
             >
@@ -119,5 +118,4 @@ export const WithCustomActions = {
       />
     </StoriesTabbedContainerTable>
   ),
-} satisfies Story
-
+} satisfies Story;
