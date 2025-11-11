@@ -1,5 +1,5 @@
 # next steps
-- [ ] user's connect with username and get assigned user ID
+- [x] user's connect with username and get assigned user ID
 - [ ] users press button and server gets button text
 
 ## what we need websockets for?
