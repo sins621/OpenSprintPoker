@@ -9,7 +9,7 @@ export const Route = createFileRoute("/ws")({
 function RouteComponent() {
   const [message, setMessage] = useState("");
 
-  const WS_URL = "ws://localhost:8000/ws";
+  const WS_URL = "ws://localhost:8000/ws?username='Test'";
 
   const { sendJsonMessage, lastJsonMessage } = useWebSocket(WS_URL, {
     onOpen: () => console.log("Connected"),
